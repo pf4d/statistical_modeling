@@ -438,6 +438,24 @@ def anovan(x, y, factor_names, conf, interaction=False):
   return vara
 
 
+def get_results(A,B,C,D):
+  """
+  INPUTS:
+    A : number of true-positives
+    B : number of false-positives
+    C : number of false-negatives
+    D : number of true-negative
+  OUTPUT:
+    tuple (sensitivity, specificity, observed_prevalance, true_prevalence
+  """
+  N         = A + B + C + D
+  sens      = A/(A+C)
+  spec      = D/(B+D)
+  ob_prev   = (A+B)/N
+  true_prev = ((A+B)/N + D/(B+D) - 1) / (A/(A+C) - D/(B+D) - 1)
+  return sens, spec, ob_prev, true_prev
+
+
 # ===================================== #
 # Negative Binomial Likelihood Function #
 # ===================================== #
