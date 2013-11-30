@@ -438,7 +438,7 @@ def anovan(x, y, factor_names, conf, interaction=False):
   return vara
 
 
-def get_results(A,B,C,D):
+def calc_prevalence(A,B,C,D):
   """
   INPUTS:
     A : number of true-positives
