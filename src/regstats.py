@@ -158,6 +158,8 @@ def nonlinRegstats(x, y, f, beta0, conf):
            'yhat'  : yhat,
            'R2'    : R2,
            'covB'  : covB,
+           'J'     : J,
+           'fjac'  : fjac,
            'resid' : resid}
   return vara
 
