@@ -8,12 +8,14 @@ from qsturng        import *
 chi2cdf = distributions.chi2.cdf
 
 def linRegstats(x, y, conf):
- 
+
   if size(shape(x)) == 1: 
+    p    = 2
     n    = float(len(x))          # Sample size
   else:
-    n    = float(shape(x)[1])     # Sample size
-  p      = 2                      # Defines # parameters
+    p,n  = shape(x)               # (samples size, # of parameters)
+    n    = float(n)
+    p    = p + 1                  # add one for intercept
   dof    = n - p                  # Degrees of freedom
   nov    = p - 1                  # number of variables
   ym     = mean(y)                # Mean of log recovery
